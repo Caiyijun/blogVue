@@ -1,0 +1,2 @@
+# blogVue
+use nuxt.js
