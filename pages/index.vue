@@ -1,15 +1,15 @@
 <template>
   <div>
-    <!-- <h2>文章列表</h2>
+    <h2>文章列表</h2>
     <ul>
-      <li v-for="(item,i) in info" :key="i">
-        <nuxt-link :to="{name:'article-id',params:{id:info[i].id}}" >{{ info[i].id }}</nuxt-link>
+      <li v-for="(item,i) in article" :key="i">
+        <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >{{ article[i].title.rendered }}</nuxt-link>
       </li>
-    </ul> -->
+    </ul>
     <h2>分类列表</h2>
     <ul>
-      <li v-for="(item,i) in cate" :key="i">
-        <nuxt-link :to="{name:'categorie-id',params:{id:cate[i].id}}">{{ cate[i].name }}</nuxt-link>
+      <li v-for="(item,i) in categories" :key="i">
+        <nuxt-link :to="{name:'categorie-id',params:{id:categories[i].id}}">{{ categories[i].name }}</nuxt-link>
       </li>
     </ul>
   </div>
@@ -19,20 +19,28 @@
 import axios from 'axios'
 
 export default {
-  // async asyncData(){
-  //     let [article,categorie]=await Promise.all([
-  //       axios.get('http://www.likecn.cn/wp-json/wp/v2/posts'),
-  //       axios.get('http://www.likecn.cn/wp-json/wp/v2/categories')
-  //     ])
-  //     return {
-  //       info:article,
-  //       cate:categorie
-  //       }
-  // },
-  async asyncData(){
-      let {data} = await axios.get('http://www.likecn.cn/wp-json/wp/v2/categories')
-      return{cate:data}
-  }
+  data(){
+    return {
+      article:[],
+      categories:[]
+    }
+  },
+ created(){
+   axios.all([
+     axios.get('http://www.likecn.cn/wp-json/wp/v2/posts'),
+     axios.get('http://www.likecn.cn/wp-json/wp/v2/categories'),
+     axios.get('http://www.likecn.cn/wp-json/wp/v2/comments')
+   ])
+   .then(axios.spread((articleres,categoriesres,commentsres)=>{
+    //  console.log(articleres.data);
+     console.log(commentsres)
+     if (articleres.status == 200) {
+       this.article = articleres.data,
+       this.categories = categoriesres.data
+     }
+   }))
+   .catch((error)=>{})
+ }
   
 }
 </script>
