@@ -1,9 +1,12 @@
 <template>
   <div>
-    <h2>文章列表</h2>
-    <ul>
+    
+    <ul class="article-list">
       <li v-for="(item,i) in article" :key="i">
-        <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >{{ article[i].title.rendered }}</nuxt-link>
+        <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >
+          <h2>{{ article[i].title.rendered }}</h2>
+          <p v-html="( article[i].excerpt.rendered )"></p>
+        </nuxt-link>
       </li>
     </ul>
     <h2>分类列表</h2>
@@ -33,10 +36,10 @@ export default {
    ])
    .then(axios.spread((articleres,categoriesres,commentsres)=>{
     //  console.log(articleres.data);
-     console.log(commentsres)
+     console.log(articleres.data)
      if (articleres.status == 200) {
        this.article = articleres.data,
-       this.categories = categoriesres.data
+       this.categories = categoriesres.data 
      }
    }))
    .catch((error)=>{})

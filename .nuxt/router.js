@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+
 
 Vue.use(Router).use(iView)
-// 455
 
 const _0a7e7b48 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
 const _5e6127ba = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
