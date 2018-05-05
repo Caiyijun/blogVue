@@ -6,6 +6,7 @@
         <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >
           <h2>{{ article[i].title.rendered }}</h2>
           <p v-html="( article[i].excerpt.rendered )"></p>
+          <span>时间：{{ article[i].modified }}</span>
         </nuxt-link>
       </li>
     </ul>
@@ -25,7 +26,8 @@ export default {
   data(){
     return {
       article:[],
-      categories:[]
+      categories:[],
+      articleTime:1
     }
   },
  created(){
@@ -39,7 +41,7 @@ export default {
      console.log(articleres.data)
      if (articleres.status == 200) {
        this.article = articleres.data,
-       this.categories = categoriesres.data 
+       this.categories = categoriesres.data
      }
    }))
    .catch((error)=>{})
