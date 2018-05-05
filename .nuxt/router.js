@@ -5,10 +5,10 @@ import 'iview/dist/styles/iview.css'
 
 Vue.use(Router).use(iView)
 
-const _0a7e7b48 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
-const _5e6127ba = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
-const _0a141144 = () => import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */).then(m => m.default || m)
-const _bc507c7c = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _a6b02b72 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
+const _69baa68e = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
+const _425e2b22 = () => import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */).then(m => m.default || m)
+const _4127da12 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
 
@@ -70,22 +70,22 @@ export function createRouter () {
     routes: [
 		{
 			path: "/categories",
-			component: _0a7e7b48,
+			component: _a6b02b72,
 			name: "categories"
 		},
 		{
 			path: "/categorie/:id?",
-			component: _5e6127ba,
+			component: _69baa68e,
 			name: "categorie-id"
 		},
 		{
 			path: "/article/:id?",
-			component: _0a141144,
+			component: _425e2b22,
 			name: "article-id"
 		},
 		{
 			path: "/",
-			component: _bc507c7c,
+			component: _4127da12,
 			name: "index"
 		}
     ],
