@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
 
-Vue.use(Router).use(iView)
+Vue.use(Router)
 
 const _a6b02b72 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
 const _69baa68e = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
