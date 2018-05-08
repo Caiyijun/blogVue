@@ -1,25 +1,14 @@
 <template>
   <div>
-    <Row>
-        <Col span="16">
-          <ul class="article-tab">
-            <li v-for="(item,i) in article" :key="i" class="article-list">
-              <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >
-                <h2>{{ article[i].title.rendered }}</h2>
-                <div class="des" v-html="( article[i].excerpt.rendered )"></div>
-              </nuxt-link>
-                <span>{{ AllDateList[i] }}</span>
-            </li>
-          </ul>
-        </Col>
-        <Col span="8">
-          <ul>
-            <li v-for="(items,i) in categoriesre" :key="i">
-              <nuxt-link :to="{name:'categorie-id',params:{id:categoriesre[i].id}}">{{ categoriesre[i].name }}</nuxt-link>
-            </li>
-          </ul> 
-        </Col>
-    </Row>
+    <ul class="article-tab">
+      <li v-for="(item,i) in article" :key="i" class="article-list">
+        <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >
+          <h2>{{ article[i].title.rendered }}</h2>
+          <div class="des" v-html="( article[i].excerpt.rendered )"></div>
+        </nuxt-link>
+        <span>{{ AllDateList[i] }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 

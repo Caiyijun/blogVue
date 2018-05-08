@@ -9,15 +9,16 @@
                       <Icon type="ios-navigate"></Icon>
                       <nuxt-link :to="{name:'index'}">首页</nuxt-link>
                   </MenuItem>
-                  <!-- <MenuItem name="1" v-for="(item,i) in categories" :key="i">
+                  <MenuItem name="1" v-for="(item,i) in categories" :key="i">
                       <Icon type="ios-navigate"></Icon>
                       <nuxt-link :to="{name:'categorie-id',params:{id:categories[i].id}}">{{ categories[i].name }}</nuxt-link>
-                  </MenuItem> -->
+                  </MenuItem>
               </div>
           </Menu>
       </Header>
       <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '500px'}">
           <nuxt/>
+        <cate-go></cate-go>
       </Content>
       <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
   </Layout>
@@ -25,31 +26,34 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+  import axios from 'axios'
+  import cateGo  from '~/components/Categories.vue'
 export default {
-//   data(){
-//     return {
-//       isCollapsed: false,
-//       article:[],
-//       categories:[]
-//     }
-//   },
-//  created(){
-//    axios.all([
-//      axios.get('http://www.likecn.cn/wp-json/wp/v2/posts'),
-//      axios.get('http://www.likecn.cn/wp-json/wp/v2/categories'),
-//    ])
-//    .then(axios.spread((articleres,categoriesres,commentsres)=>{
-//     //  console.log(articleres.data);
-//     //  console.log(commentsres)
-//      if (articleres.status == 200) {
-//        this.article = articleres.data,
-//        this.categories = categoriesres.data
-//      }
-//    }))
-//    .catch((error)=>{})
-//  },
+  data(){
+    return {
+      isCollapsed: false,
+      article:[],
+      categories:[]
+    }
+  },
+  components:{
+    cateGo
+  },
+ created(){
+   axios.all([
+     axios.get('http://www.likecn.cn/wp-json/wp/v2/posts'),
+     axios.get('http://www.likecn.cn/wp-json/wp/v2/categories'),
+   ])
+   .then(axios.spread((articleres,categoriesres,commentsres)=>{
+    //  console.log(articleres.data);
+    //  console.log(commentsres)
+     if (articleres.status == 200) {
+       this.article = articleres.data,
+       this.categories = categoriesres.data
+     }
+   }))
+   .catch((error)=>{})
+ },
  computed: {
     menuitemClasses: function () {
       return [
@@ -58,7 +62,7 @@ export default {
       ]
     }
   }
-  
+
 }
 </script>
 
