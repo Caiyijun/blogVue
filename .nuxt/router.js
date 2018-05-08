@@ -2,13 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
-
 Vue.use(Router).use(iView)
 
-const _a6b02b72 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
-const _69baa68e = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
-const _425e2b22 = () => import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */).then(m => m.default || m)
-const _4127da12 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _0a7e7b48 = () => import('..\\pages\\categories.vue' /* webpackChunkName: "pages_categories" */).then(m => m.default || m)
+const _5e6127ba = () => import('..\\pages\\categorie\\_id.vue' /* webpackChunkName: "pages_categorie__id" */).then(m => m.default || m)
+const _0a141144 = () => import('..\\pages\\article\\_id.vue' /* webpackChunkName: "pages_article__id" */).then(m => m.default || m)
+const _bc507c7c = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
 
@@ -70,22 +69,22 @@ export function createRouter () {
     routes: [
 		{
 			path: "/categories",
-			component: _a6b02b72,
+			component: _0a7e7b48,
 			name: "categories"
 		},
 		{
 			path: "/categorie/:id?",
-			component: _69baa68e,
+			component: _5e6127ba,
 			name: "categorie-id"
 		},
 		{
 			path: "/article/:id?",
-			component: _425e2b22,
+			component: _0a141144,
 			name: "article-id"
 		},
 		{
 			path: "/",
-			component: _4127da12,
+			component: _bc507c7c,
 			name: "index"
 		}
     ],
