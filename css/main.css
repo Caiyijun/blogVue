@@ -55,9 +55,28 @@ ul{
 .categories-list,.article-list{
     color: #7f8c8d;
 }
-.article-list{
-    border-top: 1px solid #666;
+.article-tab{
+    /* border-top: 1px solid #666; */
 }
-.article-list li{
+.article-tab li{
     padding: 10px;
+}
+.article-list{
+	transition: all 0.5s ease
+}
+.article-list:hover{
+	box-shadow: 0 0 30px rgba(0,0,0,0.15);
+	transform: translate3d(0, 1px, -2px);
+}
+.article-list h2{
+	color: #31424e;
+	font-weight: bold
+}
+.article-list .des{
+	font-size: 14px;
+    text-align: left;
+    color: #5e6b73;
+    line-height: 22px;
+    padding: 15px 0;
+    text-align: left;
 }
