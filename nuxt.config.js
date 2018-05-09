@@ -14,8 +14,12 @@ module.exports = {
     ]
   },
   css: [
-    '~/css/main.css'
+    '~/css/main.css',
+    'iview/dist/styles/iview.css'
     // '//at.alicdn.com/t/font_658474_030rwmtuoiw45cdi.css'
+  ],
+  plugins: [
+    '~plugins/iview'
   ],
   /*
   ** Customize the progress bar color
