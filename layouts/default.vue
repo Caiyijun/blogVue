@@ -16,10 +16,16 @@
               </div>
           </Menu>
       </Header>
-      <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '500px'}">
-          <nuxt/>
-        <cate-go></cate-go>
-      </Content>
+      <Row>
+        <Col span="4">1</Col>
+        <Col span="16">
+          <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '500px'}">
+              <nuxt/>
+            <!-- <cate-go></cate-go> -->
+          </Content>
+        </Col>
+        <Col span="4">1</Col>  
+      </Row> 
       <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
   </Layout>
 </div>
@@ -36,22 +42,16 @@ export default {
       categories:[]
     }
   },
-  components:{
-    cateGo
-  },
+//   components:{
+//     cateGo
+//   },
  created(){
-   axios.all([
-     axios.get('http://www.likecn.cn/wp-json/wp/v2/posts'),
-     axios.get('http://www.likecn.cn/wp-json/wp/v2/categories'),
-   ])
-   .then(axios.spread((articleres,categoriesres,commentsres)=>{
-    //  console.log(articleres.data);
-    //  console.log(commentsres)
+    axios.get('http://www.likecn.cn/wp-json/wp/v2/categories')
+   .then((res)=>{
      if (articleres.status == 200) {
-       this.article = articleres.data,
        this.categories = categoriesres.data
      }
-   }))
+   })
    .catch((error)=>{})
  },
  computed: {

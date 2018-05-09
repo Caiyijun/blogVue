@@ -15,6 +15,7 @@ module.exports = {
   },
   css: [
     '~/css/main.css'
+    // '//at.alicdn.com/t/font_658474_030rwmtuoiw45cdi.css'
   ],
   /*
   ** Customize the progress bar color

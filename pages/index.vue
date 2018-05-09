@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ul class="article-tab">
+    <ul class="article-content">
       <li v-for="(item,i) in article" :key="i" class="article-list">
         <nuxt-link :to="{name:'article-id',params:{id:article[i].id}}" >
           <h2>{{ article[i].title.rendered }}</h2>
           <div class="des" v-html="( article[i].excerpt.rendered )"></div>
         </nuxt-link>
-        <span>{{ AllDateList[i] }}</span>
+        <span class="time-tip">{{ AllDateList[i] }}</span>
       </li>
     </ul>
   </div>
